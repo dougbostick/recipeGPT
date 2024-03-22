@@ -6,7 +6,7 @@ function App() {
   const [data, setData] = useState([]);
   const [ingredients, setIngedients] = useState([])
   const [gptResponse, setGptResponse] = useState('')
-  const [search, setSearch] = useState('')
+  const [input, setInput] = useState('')
 
   const fetchData = async () => {
     try{
@@ -45,31 +45,60 @@ function App() {
 
   useEffect(() => {
     fetchData();
-    setIngedients(['chicekn', 'toamto sauce', 'pasta'])
+    setIngedients(['chicken', 'toamto sauce', 'pasta'])
   }, [])
 
-  useEffect(() => {
-    fetchRecipe()
-  }, [ingredients])
+  // useEffect(() => {
+  //   fetchRecipe()
+  // }, [ingredients])
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   setIngedients([...ingredients, e.target.value])
-  // }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setIngedients([...ingredients, input])
+    setInput('')
+  }
 
   console.log('GPT', gptResponse)
 
+  const renderIngredients = ingredients.map((item) => {
+    return(
+      <li>{item}</li>
+    )
+  })
   return (
     <div className="App">
-    Recipe GPT
-    <div>{data}</div>
-    {/* <div>
-      <form onSubmit={handleSubmit}>
-        <input type='input' value={search} />
-        <button type='submit'>add to ingredients</button>
-      </form>
-    </div> */}
-    <div>{gptResponse}</div>
+      <div className='searchDiv'>
+        <h1>Recipe GPT</h1>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input 
+            type='input' 
+            value={input} 
+            onChange={(e) => setInput(e.target.value)}
+            autoFocus={true} 
+            />
+            <button type='submit'>add to ingredients</button>
+          </form>
+        </div>  
+      </div>
+      
+      <div className='listDiv'>
+        <div className='ingredientsDiv'>
+          <h1>Ingredients</h1>
+          <ul className='ingredientList'>
+            {renderIngredients}
+          </ul>
+        </div>
+        <div className='recipeDiv'>
+          <h1>Recipes</h1>
+          <ul className='recipeList'>
+          <li>num1</li>
+          <li>num1</li>
+          <li>num1</li>
+
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

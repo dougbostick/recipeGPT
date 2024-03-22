@@ -1,38 +1,72 @@
 .App {
   text-align: center;
+  height: 90vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.searchDiv{
+  /* border: 1px solid black; */
+  height: 20%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.listDiv{
+  /* border: 1px solid blue; */
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ingredientsDiv{
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
 
-.App-link {
-  color: #61dafb;
+/* .ingredientList{
+  border: 1px solid black;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+} */
+
+.recipeDiv{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* .recipeList{
+  border: 1px solid black;
+  height: 100%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+ul {
+  border: 1px solid black;
+  height: 100%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  padding: 0;
 }
+
+li{
+  list-style: none;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 5px;
+  width: 40%;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
