@@ -1,6 +1,7 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import Recipe from './Recipe/Recipe';
 
 function App() {
   const [data, setData] = useState([]);
@@ -8,16 +9,18 @@ function App() {
   const [gptResponse, setGptResponse] = useState('')
   const [input, setInput] = useState('')
 
-  const fetchData = async () => {
-    try{
-      const response = await axios.get('http://localhost:3001');
-      console.log(response.data)
-      setData(response.data);
-    } catch(err){
-      console.log(err)
-    }
+  // const fetchData = async () => {
+  //   try{
+  //     const response = await axios.get('http://localhost:3001');
+  //     console.log(response.data)
+  //     setData(response.data);
+  //   } catch(err){
+  //     console.log(err)
+  //   }
    
-  }
+  // }
+
+  
 
   const fetchRecipe = async () => {
     // const ingredientList = ingredients.reduce((list, item) => {
@@ -44,13 +47,13 @@ function App() {
 
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
     setIngedients(['chicken', 'toamto sauce', 'pasta'])
   }, [])
 
-  // useEffect(() => {
-  //   fetchRecipe()
-  // }, [ingredients])
+  useEffect(() => {
+    fetchRecipe()
+  }, [ingredients])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -65,6 +68,31 @@ function App() {
       <li>{item}</li>
     )
   })
+
+  // const renderRecipeResponse = gptResponse ? (
+  // <div>
+  //   <h1>{gptResponse.recipe}</h1>
+  //   {visible && <div>
+  //     <h2>Ingredients</h2>
+  //     <ul>
+  //       {gptResponse.ingredients.map((item) => {
+  //         return <li>{item}</li>
+  //       })}
+  //     </ul>
+  //     <h2>Steps</h2>
+  //     <ul>
+  //       {gptResponse.steps.map((step) => {
+  //         return <li>{step}</li>
+  //       })}
+  //     </ul>
+  //   </div>}
+    
+  // </div>
+  // ) : null
+ 
+
+  
+
   return (
     <div className="App">
       <div className='searchDiv'>
@@ -91,12 +119,14 @@ function App() {
         </div>
         <div className='recipeDiv'>
           <h1>Recipes</h1>
-          <ul className='recipeList'>
-          <li>num1</li>
-          <li>num1</li>
-          <li>num1</li>
-
-          </ul>
+          <div className='gptRes'>
+            {/* {renderRecipeResponse} */}
+            {gptResponse.recipes ? gptResponse.recipes.map((recipe) => {
+              <Recipe recipe={recipe} />
+            }): null}
+          </div>
+          {/* <ul className='recipeList'>
+          </ul> */}
         </div>
       </div>
     </div>
