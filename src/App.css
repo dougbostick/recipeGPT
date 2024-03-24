@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  /* overflow: scroll; */
 }
 
 /* .recipeList{
@@ -64,6 +64,7 @@
   border: 1px solid black;
   height: 100%;
   width: 70%;
+  overflow: auto;
 }
 
 /* li{

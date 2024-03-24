@@ -4,29 +4,13 @@ import axios from 'axios';
 import Recipe from './Recipe/Recipe';
 
 function App() {
-  const [data, setData] = useState([]);
   const [ingredients, setIngedients] = useState([])
   const [gptResponse, setGptResponse] = useState('')
   const [input, setInput] = useState('')
 
-  // const fetchData = async () => {
-  //   try{
-  //     const response = await axios.get('http://localhost:3001');
-  //     console.log(response.data)
-  //     setData(response.data);
-  //   } catch(err){
-  //     console.log(err)
-  //   }
-   
-  // }
 
   
-
   const fetchRecipe = async () => {
-    // const ingredientList = ingredients.reduce((list, item) => {
-    //   list + item + ', '
-    //   return list
-    // }, '')
     let ingredientList = ''
 
     for(const item of ingredients){
@@ -40,20 +24,16 @@ function App() {
       })
       console.log('axios res', response)
       setGptResponse(response.data)
+
     } catch(err){
       console.log(err)
     }
   }
 
+  const clearIngredients = () => {
+    setIngedients([])
+  }
 
-  useEffect(() => {
-    // fetchData();
-    setIngedients(['chicken', 'toamto sauce', 'pasta'])
-  }, [])
-
-  useEffect(() => {
-    fetchRecipe()
-  }, [ingredients])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -61,7 +41,6 @@ function App() {
     setInput('')
   }
 
-  console.log('GPT', gptResponse)
 
   const renderIngredients = ingredients.map((item) => {
     return(
@@ -86,13 +65,16 @@ function App() {
   //       })}
   //     </ul>
   //   </div>}
-    
   // </div>
   // ) : null
  
 
-  
+  const renderRecipeResponse = gptResponse.recipes ? gptResponse.recipes.map((recipe) => {
+    {console.log(recipe)}
+    return <Recipe recipe={recipe} />
+  }): null
 
+  console.log(gptResponse)
   return (
     <div className="App">
       <div className='searchDiv'>
@@ -107,7 +89,9 @@ function App() {
             />
             <button type='submit'>add to ingredients</button>
           </form>
-        </div>  
+        </div>
+        <button onClick={fetchRecipe}>find recipe</button>  
+        <button onClick={clearIngredients}>clear ingredients</button>
       </div>
       
       <div className='listDiv'>
@@ -120,10 +104,8 @@ function App() {
         <div className='recipeDiv'>
           <h1>Recipes</h1>
           <div className='gptRes'>
-            {/* {renderRecipeResponse} */}
-            {gptResponse.recipes ? gptResponse.recipes.map((recipe) => {
-              <Recipe recipe={recipe} />
-            }): null}
+            {renderRecipeResponse}
+            
           </div>
           {/* <ul className='recipeList'>
           </ul> */}
