@@ -1,6 +1,15 @@
+/* font-family: "Poppins", sans-serif; */
+
 .App {
   text-align: center;
   height: 90vh;
+}
+
+h1{
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+  font-size: 6vmin;
+  color: #0e00a4;
 }
 
 .searchDiv{
@@ -8,11 +17,13 @@
   height: 20%;
 }
 
+
+
 .listDiv{
   /* border: 1px solid blue; */
   height: 80%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .ingredientsDiv{
@@ -23,14 +34,38 @@
   
 }
 
-/* .ingredientList{
-  border: 1px solid black;
-  width: 70%;
+.inputDiv{
+  // display: flex;
+  // justify-content: center;
+  width: 100%;
+  input{
+    font-size: 2vmin;
+    padding: 5px;
+    width: 30vmin; 
+  }
+  button{
+    margin: 1vmin;
+    font-size: 1.5vmin;
+    border-radius: 15px;
+    padding: .5vmin;
+    font-family: "Poppins", sans-serif 
+  }
+}
+
+
+.buttonDiv {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-} */
+  justify-content: center;
+  button{
+    margin: 1vmin;
+    font-size: 1.75vmin;
+    border-radius: 15px;
+    padding: .5vmin;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+
 
 .recipeDiv{
   width: 50%;
@@ -61,10 +96,10 @@
 } */
 
 .gptRes{
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 100%;
   width: 70%;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 /* li{
