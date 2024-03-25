@@ -1,5 +1,3 @@
-/* font-family: "Poppins", sans-serif; */
-
 .App {
   text-align: center;
   height: 90vh;
@@ -17,6 +15,10 @@ h1{
   height: 20%;
 }
 
+.message {
+  font-size: 2vmin;
+  font-family: "Poppins", sans-serif 
+}
 
 
 .listDiv{
@@ -57,11 +59,11 @@ h1{
   display: flex;
   justify-content: center;
   button{
-    margin: 1vmin;
-    font-size: 1.75vmin;
-    border-radius: 15px;
-    padding: .5vmin;
-    font-family: "Poppins", sans-serif;
+    // margin: 1vmin;
+    // font-size: 1.75vmin;
+    // border-radius: 15px;
+    // padding: .5vmin;
+    // font-family: "Poppins", sans-serif;
   }
 }
 
@@ -73,6 +75,11 @@ h1{
   flex-direction: column;
   align-items: center;
   /* overflow: scroll; */
+}
+
+.ingredientLi{
+  font-family: "Poppins", sans-serif;
+  font-size: 2vmin;
 }
 
 /* .recipeList{

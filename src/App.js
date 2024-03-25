@@ -8,29 +8,37 @@ function App() {
   const [gptResponse, setGptResponse] = useState('')
   const [input, setInput] = useState('')
   const [view, setView] = useState(true)
+  const [loading, setLoading] = useState(false)
+
 
   
   const fetchRecipe = async () => {
-    console.log('clicked')
-    let ingredientList = ''
-    for(const item of ingredients){
-      ingredientList += (item + ', ')
+    setGptResponse('')
+    setView(false)
+    setLoading(true)
+    if(!ingredients.length){
+      setGptResponse('')
+    } else {
+      let ingredientList = ''
+      for(const item of ingredients){
+        ingredientList += (item + ', ')
+      }
+      try{
+        const response = await axios.post('http://localhost:3001/gpt', {
+         ingredientList
+        })
+        console.log('axios res', response)
+        setGptResponse(response.data)
+      } catch(err){
+        console.log(err)
+      }
     }
-    console.log('LIST', ingredientList)
-    try{
-      const response = await axios.post('http://localhost:3001/gpt', {
-       ingredientList
-      })
-      console.log('axios res', response)
-      setGptResponse(response.data)
-      setView(false)
-    } catch(err){
-      console.log(err)
-    }
+    setLoading(false)
   }
 
   const clearIngredients = () => {
     setIngedients([])
+    setGptResponse('')
   }
 
   const toggleView = () => {
@@ -40,24 +48,28 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setView(true)
     setIngedients([...ingredients, input])
     setInput('')
   }
 
 
-  const renderIngredients = ingredients.map((item) => {
+  const renderIngredients = ingredients.length ? ingredients.map((item) => {
     return(
-      <li>{item}</li>
+      <li className='ingredientLi'>{item}</li>
     )
-  })
- 
+  }) : <div className='message'>Enter some ingredients!</div>
+ const noRecipes = (
+  ingredients.length ? 
+  <div className='message'>Sorry we couldn't find any recipes!</div> : <div className='message'>Enter some ingredients!</div>
+ )
 
   const renderRecipeResponse = gptResponse.recipes ? gptResponse.recipes.map((recipe) => {
     {console.log(recipe)}
     return <Recipe recipe={recipe} />
-  }): null
+  }): noRecipes
 
-  console.log(gptResponse)
+
   return (
     <div className="App">
       <div className='searchDiv'>
@@ -92,7 +104,7 @@ function App() {
         {!view && <div className='recipeDiv'>
           <h1>Recipes</h1>
           <div className='gptRes'>
-            {renderRecipeResponse}   
+            {loading ? <div className='message'>Asking our LLM friend for recipes, one moment!</div> : renderRecipeResponse}   
           </div>
         </div>}
       </div>
