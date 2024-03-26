@@ -1,90 +1,117 @@
 .App {
   text-align: center;
-  height: 90vh;
+  // height: 90vh;
+  height: 100vh;
+  overflow: auto;
+  margin: 0;
 }
 
-h1{
-  font-family: "Righteous", sans-serif;
-  font-weight: 400;
-  font-size: 6vmin;
-  color: #0e00a4;
-}
-
-.searchDiv{
-  /* border: 1px solid black; */
+.header{
   height: 20%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img{
+   height: 10vmin;
+   width: auto;
+   margin-left: 5vmin;
+  }
+  .logo{
+    margin-right: 10vmin;
+  }
 }
 
-.message {
-  font-size: 2vmin;
-  font-family: "Poppins", sans-serif 
-}
-
-
-.listDiv{
-  /* border: 1px solid blue; */
+.main{
   height: 80%;
-  display: flex;
-  justify-content: center;
+  // border: 1px solid blue;
 }
 
-.ingredientsDiv{
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+// h1{
+//   font-family: "Righteous", sans-serif;
+//   font-weight: 400;
+//   font-size: 6vmin;
+//   color: #0e00a4;
+// }
+
+
+
+// .searchDiv{
+//   /* border: 1px solid black; */
+//   height: 20%;
+// }
+
+// .message {
+//   font-size: 2vmin;
+//   font-family: "Poppins", sans-serif 
+// }
+
+
+// .responseDiv{
+//   /* border: 1px solid blue; */
+//   height: 80%;
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .ingredientsDiv{
+//   width: 50%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
   
-}
+// }
 
-.inputDiv{
-  // display: flex;
-  // justify-content: center;
-  width: 100%;
-  input{
-    font-size: 2vmin;
-    padding: 5px;
-    width: 30vmin; 
-  }
-  button{
-    margin: 1vmin;
-    font-size: 1.5vmin;
-    border-radius: 15px;
-    padding: .5vmin;
-    font-family: "Poppins", sans-serif 
-  }
-}
-
-
-.buttonDiv {
-  display: flex;
-  justify-content: center;
-  button{
-    // margin: 1vmin;
-    // font-size: 1.75vmin;
-    // border-radius: 15px;
-    // padding: .5vmin;
-    // font-family: "Poppins", sans-serif;
-  }
-}
+// .inputDiv{
+//   // display: flex;
+//   // justify-content: center;
+//   width: 100%;
+//   input{
+//     font-size: 2vmin;
+//     padding: 5px;
+//     width: 30vmin; 
+//   }
+//   button{
+//     margin: 1vmin;
+//     font-size: 1.5vmin;
+//     border-radius: 15px;
+//     padding: .5vmin;
+//     font-family: "Poppins", sans-serif 
+//   }
+// }
 
 
+// .buttonDiv {
+//   display: flex;
+//   justify-content: center;
+//   button{
+//     // margin: 1vmin;
+//     // font-size: 1.75vmin;
+//     // border-radius: 15px;
+//     // padding: .5vmin;
+//     // font-family: "Poppins", sans-serif;
+//   }
+// }
 
-.recipeDiv{
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* overflow: scroll; */
-}
 
-.ingredientLi{
-  font-family: "Poppins", sans-serif;
-  font-size: 2vmin;
-}
 
-.assistantResDiv{
-  width: 75%;
-}
+// .recipeDiv{
+//   width: 50%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   /* overflow: scroll; */
+// }
+
+// .ingredientLi{
+//   font-family: "Poppins", sans-serif;
+//   font-size: 2vmin;
+// }
+
+// .assistantResDiv{
+//   width: 75%;
+// }
 /* .recipeList{
   border: 1px solid black;
   height: 100%;
@@ -105,12 +132,12 @@ h1{
   padding: 0;
 } */
 
-.gptRes{
-  /* border: 1px solid black; */
-  height: 100%;
-  width: 70%;
-  /* overflow: auto; */
-}
+// .gptRes{
+//   /* border: 1px solid black; */
+//   height: 100%;
+//   width: 70%;
+//   /* overflow: auto; */
+// }
 
 /* li{
   list-style: none;
