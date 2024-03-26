@@ -1,113 +1,12 @@
 import './App.scss';
-import {useState, useEffect} from 'react';
-import axios from 'axios';
-import Recipe from './Recipe/Recipe';
+import {useState} from 'react';
 import Assistant from './Assistant/Assistant';
 import logo from './assets/logo.png'
 import RecipeFinder from './RecipeFinder/RecipeFinder';
+import About from './About/About';
 
 function App() {
-  const [ingredients, setIngedients] = useState([])
-  const [gptResponse, setGptResponse] = useState({})
-  const [input, setInput] = useState('')
   const [view, setView] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [assistantView, setAssistantView] = useState(false)
-  const [assistantResponse, setAssistantResponse] = useState({})
-
-
-  const fetchAdvice = async () => {
-    setAssistantResponse({})
-    setView(false)
-    setAssistantView(true)
-    setLoading(true)
-    try{
-      const response = await axios.post('http://localhost:3001/gptAssist', {
-        input
-      })
-      console.log('assist response', response.data)
-      setAssistantResponse(response.data)
-    }catch(err){
-      console.log(err)
-    }
-    setLoading(false)
-  }
-  
-  const fetchRecipe = async () => {
-    setGptResponse({})
-    setView(false)
-    setLoading(true)
-    if(!ingredients.length){
-      setGptResponse({})
-    } else {
-      let ingredientList = ''
-      for(const item of ingredients){
-        ingredientList += (item + ', ')
-      }
-      try{
-        const response = await axios.post('http://localhost:3001/gpt', {
-         ingredientList
-        })
-        console.log('axios res', response.data)
-        setGptResponse(response.data)
-      } catch(err){
-        console.log(err)
-      }
-    }
-    setLoading(false)
-  }
-
-  const clearIngredients = () => {
-    setIngedients([])
-    setGptResponse('')
-  }
-
-  const toggleView = () => {
-    setView(!view)
-  }
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if(assistantView){
-    
-      setView(false)
-      fetchAdvice()
-      setInput('')
-    } else {
-      setView(true)
-      setIngedients([...ingredients, input])
-      setInput('')
-    }
-    
-  }
-
-  const toggleAssistant = () => {
-    setAssistantView(!assistantView)
-    setView(!view)
-  }
-
-    //need a button for assisnt view / recipe view toggle
-
-  const renderIngredients = ingredients.length ? ingredients.map((item) => {
-    return(
-      <li className='ingredientLi'>{item}</li>
-    )
-  }) : <div className='message'>Enter some ingredients!</div>
-
- const noRecipes = (
-  ingredients.length ? 
-  <div className='message'>Sorry we couldn't find any recipes!</div> : <div className='message'>Enter some ingredients!</div>
- )
-
-  const renderRecipeResponse = gptResponse.recipes ? gptResponse.recipes.map((recipe) => {
-    {console.log(recipe)}
-    return <Recipe recipe={recipe} />
-  }): noRecipes
-
-  const renderAssistantResponse = assistantResponse.response ? <p>{assistantResponse.response}</p> : null
-
-  const inputPlaceHolder = assistantView ? 'Ask me a culinary question' : 'What ingredients do you have?'
 
   const handleSelect = (e) => {
     setView(e.target.value)
@@ -122,15 +21,22 @@ function App() {
             <option value='recipe'>Recipe Finder</option>
             <option value='assistant'>Culinary Assistant</option>
             <option value='about'>About</option>
-
           </select>
         </div>
       </div>
       <div className='main'>
         {view === 'assistant' ? <Assistant /> : null}
         {view === 'recipe' ? <RecipeFinder /> : null}
+        {view === 'about' ? <About /> : null}
       </div>
-      {/* <div className='searchDiv'>
+    </div>
+  );
+}
+
+export default App;
+
+
+{/* <div className='searchDiv'>
         <div>
           <h1>Mis En Place</h1>
           <button onClick={toggleAssistant} className='assitantToggle'>{assistantView ? 'Culinary Assistant' : 'Recipe Helper'}</button>
@@ -176,8 +82,106 @@ function App() {
           </div>
         </div>}
       </div> */}
-    </div>
-  );
-}
 
-export default App;
+  // const [ingredients, setIngedients] = useState([])
+  // const [gptResponse, setGptResponse] = useState({})
+  // const [input, setInput] = useState('')
+  // const [loading, setLoading] = useState(false)
+  // const [assistantView, setAssistantView] = useState(false)
+  // const [assistantResponse, setAssistantResponse] = useState({})
+
+
+      
+
+  // const fetchAdvice = async () => {
+  //   setAssistantResponse({})
+  //   setView(false)
+  //   setAssistantView(true)
+  //   setLoading(true)
+  //   try{
+  //     const response = await axios.post('http://localhost:3001/gptAssist', {
+  //       input
+  //     })
+  //     console.log('assist response', response.data)
+  //     setAssistantResponse(response.data)
+  //   }catch(err){
+  //     console.log(err)
+  //   }
+  //   setLoading(false)
+  // }
+  
+  // const fetchRecipe = async () => {
+  //   setGptResponse({})
+  //   setView(false)
+  //   setLoading(true)
+  //   if(!ingredients.length){
+  //     setGptResponse({})
+  //   } else {
+  //     let ingredientList = ''
+  //     for(const item of ingredients){
+  //       ingredientList += (item + ', ')
+  //     }
+  //     try{
+  //       const response = await axios.post('http://localhost:3001/gpt', {
+  //        ingredientList
+  //       })
+  //       console.log('axios res', response.data)
+  //       setGptResponse(response.data)
+  //     } catch(err){
+  //       console.log(err)
+  //     }
+  //   }
+  //   setLoading(false)
+  // }
+
+  // const clearIngredients = () => {
+  //   setIngedients([])
+  //   setGptResponse('')
+  // }
+
+  // const toggleView = () => {
+  //   setView(!view)
+  // }
+
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   if(assistantView){
+    
+  //     setView(false)
+  //     fetchAdvice()
+  //     setInput('')
+  //   } else {
+  //     setView(true)
+  //     setIngedients([...ingredients, input])
+  //     setInput('')
+  //   }
+    
+  // }
+
+  // const toggleAssistant = () => {
+  //   setAssistantView(!assistantView)
+  //   setView(!view)
+//   // }
+
+//     //need a button for assisnt view / recipe view toggle
+
+//   const renderIngredients = ingredients.length ? ingredients.map((item) => {
+//     return(
+//       <li className='ingredientLi'>{item}</li>
+//     )
+//   }) : <div className='message'>Enter some ingredients!</div>
+
+//  const noRecipes = (
+//   ingredients.length ? 
+//   <div className='message'>Sorry we couldn't find any recipes!</div> : <div className='message'>Enter some ingredients!</div>
+//  )
+
+//   const renderRecipeResponse = gptResponse.recipes ? gptResponse.recipes.map((recipe) => {
+//     {console.log(recipe)}
+//     return <Recipe recipe={recipe} />
+//   }): noRecipes
+
+//   const renderAssistantResponse = assistantResponse.response ? <p>{assistantResponse.response}</p> : null
+
+//   const inputPlaceHolder = assistantView ? 'Ask me a culinary question' : 'What ingredients do you have?'
