@@ -23,7 +23,6 @@ function App() {
             <option value='about'>About</option>
           </select>
         </div>
-        
       </div>
       <div className='main'>
         {view === 'assistant' ? <Assistant /> : null}

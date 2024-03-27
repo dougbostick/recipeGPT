@@ -6,20 +6,28 @@ export default function Assistant(){
     const [apiResponse, setApiResponse] = useState({})
     const [input, setInput] = useState('')
     const [loading, setLoading] = useState(false)
+    const [message, setMessage ] = useState('')
 
 
     const fetchAdvice = async () => {
         setApiResponse({})
         setLoading(true)
-        try{
-          const response = await axios.post('http://localhost:3001/gptAssist', {
-            input
-          })
-          console.log('assist response', response.data)
-          setApiResponse(response.data)
-        }catch(err){
-          console.log(err)
+        setMessage('Asking our LLM friend your question, one moment!')
+        if(!input.length){
+            setMessage('You forgot to ask a question!')
+        } else {
+            try{
+                const response = await axios.post('http://localhost:3001/gptAssist', {
+                  input
+                })
+                console.log('assist response', response.data)
+                setApiResponse(response.data)
+              }catch(err){
+                console.log(err)
+                setMessage('There was a problem reaching our LLM friend, try again later.')
+              }
         }
+        
         setLoading(false)
       }
 
@@ -29,7 +37,7 @@ export default function Assistant(){
         setInput('')
     }
 
-    const renderAssistantResponse = apiResponse.response ? <p>{apiResponse.response}</p> : null
+    const renderAssistantResponse = apiResponse.response ? <p>{apiResponse.response}</p> : message
 
     return(
         <div className='component'>
@@ -62,9 +70,8 @@ export default function Assistant(){
                     </div>
                 </div>
                 <div className='assistantResDiv'>
-                    <h1>Let's talk food!</h1>
                     <div className='message'>
-                        {loading ? 'Asking our LLM friend your question, one moment!' : renderAssistantResponse}
+                        {loading ? message : renderAssistantResponse}
                     </div>
                 </div>
             </div>  

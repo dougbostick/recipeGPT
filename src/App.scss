@@ -15,22 +15,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid #0e00a4;
   width: 95%;
   img{
-   height: 10vmin;
+   height: 6vmin;
    width: auto;
-   margin-left: 5vmin;
+   margin-left: 2vmin;
   }
   .logo{
-    margin-right: 10vmin;
+    margin-right: 8vmin;
   }
 }
 
 .main{
   height: 80%;
-  width: 100%;
-  // border: 1px solid blue;
+  width: 80%;
 }
 
 .inputDiv{
@@ -47,6 +46,7 @@
   input:focus {
     outline: none;
   }
+ 
 
   button{
     margin: 1vmin;
@@ -54,23 +54,33 @@
     border-radius: 15px;
     padding: .5vmin;
     font-family: "Poppins", sans-serif 
+    span{
+      font-size: 48px;
+    }
   }
 }
+
+
 
 .component {
   display: flex;
   height: 100%;
 }
 .apiDiv{
-  flex: 2;
+  flex: 1;
+  text-align: left;
+  margin-left: 2%;
+  max-width: 50%;
+  margin-top: 3%;
 }
 
 .fillerDiv{
+  max-width: 50%;
   flex: 1;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   height: 100%;
+  margin-right: 2%;
 }
 
 .fillerText{
@@ -105,24 +115,55 @@
   }
 }
 
-// h1{
-//   font-family: "Righteous", sans-serif;
-//   font-weight: 400;
-//   font-size: 6vmin;
-//   color: #0e00a4;
-// }
+span:hover{
+  cursor: default;
+}
+span{
+  margin: 0;
+}
+button{
+  background: none;
+  border: none;
+  text-align: center;
+}
+
+.buttonDiv{
+  margin-top: 4vmin;
+  div{
+    margin: 2vmin;
+  }
+}
 
 
+.message {
+  font-size: 2vmin;
+  font-family: "Poppins", sans-serif;
+  margin-top: 2vmin;
+}
+
+h1{
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+  font-size: 4vmin;
+  // color: #0e00a4;
+}
+
+.ingredientLi{
+  font-family: "Poppins", sans-serif;
+  font-size: 2vmin;
+  margin-top: 1vmin;
+}
+
+.material-symbols-outlined{
+  font-size: 3vmin;
+}
 
 // .searchDiv{
 //   /* border: 1px solid black; */
 //   height: 20%;
 // }
 
-// .message {
-//   font-size: 2vmin;
-//   font-family: "Poppins", sans-serif 
-// }
+
 
 
 // .responseDiv{
@@ -162,10 +203,7 @@
 //   /* overflow: scroll; */
 // }
 
-// .ingredientLi{
-//   font-family: "Poppins", sans-serif;
-//   font-size: 2vmin;
-// }
+
 
 // .assistantResDiv{
 //   width: 75%;

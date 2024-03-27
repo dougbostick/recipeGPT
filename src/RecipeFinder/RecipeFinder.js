@@ -6,7 +6,7 @@ import axios from 'axios'
 
 export default function RecipeFinder(){
     const [view, setView] = useState(true)
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [ingredients, setIngedients] = useState([])
     const [input, setInput] = useState('')
     const [apiResponse, setApiResponse] = useState({})
@@ -37,7 +37,7 @@ export default function RecipeFinder(){
 
       const clearIngredients = () => {
         setIngedients([])
-        setApiResponse('')
+        setApiResponse({})
       }
     
       const toggleView = () => {
@@ -71,8 +71,8 @@ export default function RecipeFinder(){
         <div className='component'>
           <div className='fillerDiv'>
             <div className='fillerText'>
-              <div className='topText'>ASK ME</div>
-              <div className='midText'>ANYTHING</div>
+              <div className='topText'>Enter your ingredients</div>
+              <div className='midText'>Ask for some recipes</div>
               <div className='bottomText'>ABOUT FOOD</div>
               <div className='exampleText'>Need suggestions for vegan party guests? </div>
               <div className='exampleText2'>Finally learn how to cook rice??</div>
@@ -88,7 +88,7 @@ export default function RecipeFinder(){
                     value={input} 
                     onChange={(e) => setInput(e.target.value)}
                     autoFocus={true} 
-                    placeholder={'What ingredients do you have?'}
+                    placeholder={'Add ingredients...'}
                     />
                     <button type='submit'>
                       <span class="material-symbols-outlined">
@@ -96,11 +96,7 @@ export default function RecipeFinder(){
                       </span>
                     </button>
                 </form>
-                <div className='buttonDiv'>
-                    <button onClick={fetchRecipe}>find recipe</button>  
-                    <button onClick={clearIngredients}>clear ingredients</button>
-                    <button onClick={toggleView}>{view ? 'View Recipes' : 'View Ingredients'}</button>
-                </div>
+          
             </div>
             <div className='responseDiv'>
                 {view && <div className='ingredientsDiv'>
@@ -115,6 +111,24 @@ export default function RecipeFinder(){
                     {loading ? <div className='message'>Asking our LLM friend for recipes, one moment!</div> : renderRecipeResponse}   
                 </div>
                 </div>}
+                <div className='buttonDiv'>
+                    {view && <button onClick={fetchRecipe}>
+                        <span class="material-symbols-outlined">
+                          search
+                        </span>
+                      </button>  }
+                      {view && <button onClick={clearIngredients}>
+                      <span class="material-symbols-outlined">
+                        delete_forever
+                      </span>
+                        </button>}
+                 
+                    <button onClick={toggleView}>
+                    <span class="material-symbols-outlined">
+                      sync_alt
+                    </span>   
+                      </button>
+                </div>
             </div>
           </div>
             
