@@ -8,7 +8,7 @@
 
 .header{
   height: 20%;
-  background-color: white;
+  // background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,23 +63,31 @@
   
 // }
 
-// .inputDiv{
-//   // display: flex;
-//   // justify-content: center;
-//   width: 100%;
-//   input{
-//     font-size: 2vmin;
-//     padding: 5px;
-//     width: 30vmin; 
-//   }
-//   button{
-//     margin: 1vmin;
-//     font-size: 1.5vmin;
-//     border-radius: 15px;
-//     padding: .5vmin;
-//     font-family: "Poppins", sans-serif 
-//   }
-// }
+.inputDiv{
+  // display: flex;
+  // justify-content: center;
+  width: 100%;
+  input{
+    font-size: 2vmin;
+    padding: 5px;
+    width: 30vmin; 
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    caret-color: #0e00a4;
+  }
+  input:focus {
+    outline: none;
+  }
+  
+  button{
+    margin: 1vmin;
+    font-size: 1.5vmin;
+    border-radius: 15px;
+    padding: .5vmin;
+    font-family: "Poppins", sans-serif 
+  }
+}
 
 
 // .buttonDiv {

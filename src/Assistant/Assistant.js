@@ -43,7 +43,11 @@ export default function Assistant(){
                         autoFocus={true} 
                         placeholder={'Ask me a culinary question...'}
                         />
-                        <button type='submit'>add to ingredients</button>
+                        <button type='submit'>
+                            <span class="material-symbols-outlined">
+                                contact_support
+                            </span>
+                        </button>
                     </form>
                 </div>
             </div>

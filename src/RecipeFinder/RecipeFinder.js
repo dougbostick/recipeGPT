@@ -78,7 +78,11 @@ export default function RecipeFinder(){
                     autoFocus={true} 
                     placeholder={'What ingredients do you have?'}
                     />
-                    <button type='submit'>add to ingredients</button>
+                    <button type='submit'>
+                      <span class="material-symbols-outlined">
+                        add
+                      </span>
+                    </button>
                 </form>
                 <div className='buttonDiv'>
                     <button onClick={fetchRecipe}>find recipe</button>  
