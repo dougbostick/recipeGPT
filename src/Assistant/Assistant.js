@@ -32,35 +32,44 @@ export default function Assistant(){
     const renderAssistantResponse = apiResponse.response ? <p>{apiResponse.response}</p> : null
 
     return(
-        <div>
-            <div className='searchDiv'>
-                <div className='inputDiv'>
-                    <form onSubmit={handleSubmit}>
-                        <input 
-                        type='input' 
-                        value={input} 
-                        onChange={(e) => setInput(e.target.value)}
-                        autoFocus={true} 
-                        placeholder={'Ask me a culinary question...'}
-                        />
-                        <button type='submit'>
-                            <span class="material-symbols-outlined">
-                                contact_support
-                            </span>
-                        </button>
-                    </form>
+        <div className='component'>
+            <div className='fillerDiv'>
+                <div className='fillerText'>
+                <div className='topText'>ASK ME</div>
+                <div className='midText'>ANYTHING</div>
+                <div className='bottomText'>ABOUT FOOD</div>
+                <div className='exampleText'>Need suggestions for vegan party guests? </div>
+                <div className='exampleText2'>Finally learn how to cook rice??</div>
                 </div>
             </div>
+            <div className='apiDiv'>
+                <div className='searchDiv'>
+                    <div className='inputDiv'>
+                        <form onSubmit={handleSubmit}>
+                            <input 
+                            type='input' 
+                            value={input} 
+                            onChange={(e) => setInput(e.target.value)}
+                            autoFocus={true} 
+                            placeholder={'Ask me a culinary question...'}
+                            />
+                            <button type='submit'>
+                                <span class="material-symbols-outlined">
+                                    contact_support
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
                 <div className='assistantResDiv'>
                     <h1>Let's talk food!</h1>
                     <div className='message'>
-                    {loading ? 'Asking our LLM friend your question, one moment!' : renderAssistantResponse}
+                        {loading ? 'Asking our LLM friend your question, one moment!' : renderAssistantResponse}
+                    </div>
                 </div>
-                 </div>
-            <div className='responseDiv'>
-
-            </div>
+            </div>  
         </div>
+        
         
     )
 }

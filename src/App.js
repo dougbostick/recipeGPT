@@ -6,7 +6,7 @@ import RecipeFinder from './RecipeFinder/RecipeFinder';
 import About from './About/About';
 
 function App() {
-  const [view, setView] = useState('')
+  const [view, setView] = useState('recipe')
 
   const handleSelect = (e) => {
     setView(e.target.value)
@@ -23,6 +23,7 @@ function App() {
             <option value='about'>About</option>
           </select>
         </div>
+        
       </div>
       <div className='main'>
         {view === 'assistant' ? <Assistant /> : null}

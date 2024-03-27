@@ -4,6 +4,9 @@
   height: 100vh;
   overflow: auto;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header{
@@ -12,6 +15,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid black;
+  width: 95%;
   img{
    height: 10vmin;
    width: auto;
@@ -24,9 +29,81 @@
 
 .main{
   height: 80%;
+  width: 100%;
   // border: 1px solid blue;
 }
 
+.inputDiv{
+  width: 100%;
+  input{
+    font-size: 2vmin;
+    padding: 5px;
+    width: 30vmin; 
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    caret-color: #0e00a4;
+  }
+  input:focus {
+    outline: none;
+  }
+
+  button{
+    margin: 1vmin;
+    font-size: 1.5vmin;
+    border-radius: 15px;
+    padding: .5vmin;
+    font-family: "Poppins", sans-serif 
+  }
+}
+
+.component {
+  display: flex;
+  height: 100%;
+}
+.apiDiv{
+  flex: 2;
+}
+
+.fillerDiv{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  height: 100%;
+}
+
+.fillerText{
+  font-family: "Poppins", sans-serif;
+  margin: 3vmin;
+  color: white;
+  text-align: left;
+  .topText{
+    font-size: 8vmin;
+    color: #0e00a4;
+
+    font-family: "Righteous", sans-serif;
+  }
+  .midText{
+    font-size: 6vmin;
+    color: #0e00a4;
+    font-family: "Righteous", sans-serif;
+  }
+  .bottomText{
+    font-size: 4.5vmin;
+    color: #0e00a4;
+
+    font-family: "Righteous", sans-serif;
+  }
+  .exampleText{
+    font-size: 3vmin;
+    color: black;
+  }
+  .exampleText2{
+    font-size: 3vmin;
+    color: black;
+  }
+}
 
 // h1{
 //   font-family: "Righteous", sans-serif;
@@ -62,33 +139,6 @@
 //   align-items: center;
   
 // }
-
-.inputDiv{
-  // display: flex;
-  // justify-content: center;
-  width: 100%;
-  input{
-    font-size: 2vmin;
-    padding: 5px;
-    width: 30vmin; 
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #000000;
-    caret-color: #0e00a4;
-  }
-  input:focus {
-    outline: none;
-  }
-  
-  button{
-    margin: 1vmin;
-    font-size: 1.5vmin;
-    border-radius: 15px;
-    padding: .5vmin;
-    font-family: "Poppins", sans-serif 
-  }
-}
-
 
 // .buttonDiv {
 //   display: flex;

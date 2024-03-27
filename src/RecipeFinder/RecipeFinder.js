@@ -68,7 +68,19 @@ export default function RecipeFinder(){
 
 
     return(
-        <div>
+        <div className='component'>
+          <div className='fillerDiv'>
+            <div className='fillerText'>
+              <div className='topText'>ASK ME</div>
+              <div className='midText'>ANYTHING</div>
+              <div className='bottomText'>ABOUT FOOD</div>
+              <div className='exampleText'>Need suggestions for vegan party guests? </div>
+              <div className='exampleText2'>Finally learn how to cook rice??</div>
+            </div>
+           
+
+          </div>
+          <div className='apiDiv'>
             <div className='inputDiv'>
                 <form onSubmit={handleSubmit}>
                     <input 
@@ -104,6 +116,8 @@ export default function RecipeFinder(){
                 </div>
                 </div>}
             </div>
+          </div>
+            
         </div>
     )
 }
