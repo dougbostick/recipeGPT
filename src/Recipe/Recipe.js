@@ -9,7 +9,7 @@ export default function Recipe (props) {
         setVisible(!visible)
     }
     return (
-    <div >
+    <div>
         <h1 className='recipeTitle'>{recipe}</h1>
         {!visible && <h2 onClick={view}>Find out more...</h2>}
         {visible && <h2 onClick={view}>Find out less...</h2>}

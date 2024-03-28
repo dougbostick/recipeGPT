@@ -59,7 +59,7 @@ export default function Assistant(){
                             value={input} 
                             onChange={(e) => setInput(e.target.value)}
                             autoFocus={true} 
-                            placeholder={'Ask me a culinary question...'}
+                            placeholder={'Ask a food question...'}
                             />
                             <button type='submit' className='subBtn'>
                                 <span class="material-symbols-outlined">

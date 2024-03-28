@@ -74,7 +74,6 @@ export default function RecipeFinder(){
               <div className='cook'>DON'T KNOW WHAT TO EAT?</div>
               <div className='tell'>Tell me what you have!</div>
               <div className='exampleText'>Add some ingredients and I'll give you some recipe suggestions!</div>
-              {/* <div className='exampleText2'>Finally learn how to cook rice??</div> */}
             </div>
            
 
@@ -95,7 +94,6 @@ export default function RecipeFinder(){
                       </span>
                     </button>
                 </form>
-          
             </div>
             <div className='responseDiv'>
                 {view && <div className='ingredientsDiv'>
@@ -111,9 +109,9 @@ export default function RecipeFinder(){
                 </div>
                 </div>}
                 <div className='buttonDiv'>
-                    <button onClick={toggleView} class='toggle'> 
+                    {apiResponse.recipes || !view  ? <button onClick={toggleView} class='toggle'> 
                           {view ? 'Recipes' : 'Ingredients'}
-                    </button>
+                    </button>: null}
                     {view && 
                         <span onClick={fetchRecipe} class="material-symbols-outlined">
                           search
