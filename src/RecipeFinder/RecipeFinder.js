@@ -71,11 +71,10 @@ export default function RecipeFinder(){
         <div className='component'>
           <div className='fillerDiv'>
             <div className='fillerText'>
-              <div className='topText'>Enter your ingredients</div>
-              <div className='midText'>Ask for some recipes</div>
-              <div className='bottomText'>ABOUT FOOD</div>
-              <div className='exampleText'>Need suggestions for vegan party guests? </div>
-              <div className='exampleText2'>Finally learn how to cook rice??</div>
+              <div className='cook'>DON'T KNOW WHAT TO EAT?</div>
+              <div className='tell'>Tell me what you have!</div>
+              <div className='exampleText'>Add some ingredients and I'll give you some recipe suggestions!</div>
+              {/* <div className='exampleText2'>Finally learn how to cook rice??</div> */}
             </div>
            
 
@@ -90,7 +89,7 @@ export default function RecipeFinder(){
                     autoFocus={true} 
                     placeholder={'Add ingredients...'}
                     />
-                    <button type='submit'>
+                    <button type='submit' className='subBtn'>
                       <span class="material-symbols-outlined">
                         add
                       </span>
@@ -108,26 +107,23 @@ export default function RecipeFinder(){
                 {!view && <div className='recipeDiv'>
                 <h1>Recipes</h1>
                 <div className='gptRes'>
-                    {loading ? <div className='message'>Asking our LLM friend for recipes, one moment!</div> : renderRecipeResponse}   
+                    {loading ? <div className='message'>Let me think about that, one moment!</div> : renderRecipeResponse}   
                 </div>
                 </div>}
                 <div className='buttonDiv'>
-                    {view && <button onClick={fetchRecipe}>
-                        <span class="material-symbols-outlined">
+                    <button onClick={toggleView} class='toggle'> 
+                          {view ? 'Recipes' : 'Ingredients'}
+                    </button>
+                    {view && 
+                        <span onClick={fetchRecipe} class="material-symbols-outlined">
                           search
                         </span>
-                      </button>  }
-                      {view && <button onClick={clearIngredients}>
-                      <span class="material-symbols-outlined">
+                      }
+                      {view && 
+                      <span onClick={clearIngredients} class="material-symbols-outlined">
                         delete_forever
                       </span>
-                        </button>}
-                 
-                    <button onClick={toggleView}>
-                    <span class="material-symbols-outlined">
-                      sync_alt
-                    </span>   
-                      </button>
+                        }
                 </div>
             </div>
           </div>

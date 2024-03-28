@@ -11,20 +11,41 @@
 
 .header{
   height: 20%;
-  // background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 3px solid #0e00a4;
   width: 95%;
+  // overflow: hidden;
   img{
    height: 6vmin;
    width: auto;
    margin-left: 2vmin;
   }
-  .logo{
-    margin-right: 8vmin;
+  .burgerDiv{
+    margin-right: 2vmin;
+    span{
+      font-size: 5vmin;
+    }
+    .options{
+      font-family: "Poppins", sans-serif;
+      color: #0e00a4;
+      font-size: 2vmin;
+      text-align: left;
+      animation-duration: .3s;
+      animation-name: slide;
+      // position: absolute;
+    }
   }
+}
+
+@keyframes slide{
+0%{
+  margin-left: 50%;
+}
+100%{
+  margin-left: 0;
+}
 }
 
 .main{
@@ -37,7 +58,7 @@
   input{
     font-size: 2vmin;
     padding: 5px;
-    width: 30vmin; 
+    width: 70%; 
     background: transparent;
     border: none;
     border-bottom: 1px solid #000000;
@@ -49,27 +70,28 @@
  
 
   button{
-    margin: 1vmin;
-    font-size: 1.5vmin;
     border-radius: 15px;
-    padding: .5vmin;
-    font-family: "Poppins", sans-serif 
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: none;
+    border: none;
+    text-align: center;
     span{
-      font-size: 48px;
+      font-size: 4vmin;
     }
   }
 }
 
 
-
 .component {
   display: flex;
+  justify-content: space-between;
   height: 100%;
 }
 .apiDiv{
   flex: 1;
   text-align: left;
-  margin-left: 2%;
+  margin-left: 10%;
   max-width: 50%;
   margin-top: 3%;
 }
@@ -80,7 +102,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  margin-right: 2%;
+  margin-right: 10%;
 }
 
 .fillerText{
@@ -88,6 +110,16 @@
   margin: 3vmin;
   color: white;
   text-align: left;
+  .cook{
+    font-size: 7vmin;
+    color: #0e00a4;
+    font-family: "Righteous", sans-serif;
+  }
+  .tell{
+    font-size: 5vmin;
+    color: #0e00a4;
+    font-family: "Righteous", sans-serif;
+  }
   .topText{
     font-size: 8vmin;
     color: #0e00a4;
@@ -118,19 +150,25 @@
 span:hover{
   cursor: default;
 }
-span{
-  margin: 0;
+div:hover{
+  cursor: default;
 }
-button{
-  background: none;
-  border: none;
-  text-align: center;
+
+.toggle{
+  font-family: "Poppins", sans-serif;
+  font-size: 2vmin;
+  color: #0e00a4;
+  font-weight: 600;
+  margin-right: 2vmin;
 }
 
 .buttonDiv{
   margin-top: 4vmin;
-  div{
-    margin: 2vmin;
+  display: flex;
+  button{
+    background: none;
+    border: none;
+    text-align: center;
   }
 }
 
@@ -145,7 +183,6 @@ h1{
   font-family: "Righteous", sans-serif;
   font-weight: 400;
   font-size: 4vmin;
-  // color: #0e00a4;
 }
 
 .ingredientLi{
@@ -155,93 +192,43 @@ h1{
 }
 
 .material-symbols-outlined{
-  font-size: 3vmin;
+  font-size: 3.5vmin;
+  margin-right: 4vmin;
+  margin-left: 0;
+  padding: 0;
+  color: #0e00a4;
 }
 
-// .searchDiv{
-//   /* border: 1px solid black; */
-//   height: 20%;
-// }
-
-
-
-
-// .responseDiv{
-//   /* border: 1px solid blue; */
-//   height: 80%;
-//   display: flex;
-//   justify-content: center;
-// }
-
-// .ingredientsDiv{
-//   width: 50%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-  
-// }
-
-// .buttonDiv {
-//   display: flex;
-//   justify-content: center;
-//   button{
-//     // margin: 1vmin;
-//     // font-size: 1.75vmin;
-//     // border-radius: 15px;
-//     // padding: .5vmin;
-//     // font-family: "Poppins", sans-serif;
-//   }
-// }
-
-
-
-// .recipeDiv{
-//   width: 50%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   /* overflow: scroll; */
-// }
-
-
-
-// .assistantResDiv{
-//   width: 75%;
-// }
-/* .recipeList{
-  border: 1px solid black;
-  height: 100%;
-  width: 70%;
+.about{
   display: flex;
   flex-direction: column;
   align-items: center;
-} */
-
-/* ul {
-  border: 1px solid black;
-  height: 100%;
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 15px;
-  padding: 0;
-} */
-
-// .gptRes{
-//   /* border: 1px solid black; */
-//   height: 100%;
-//   width: 70%;
-//   /* overflow: auto; */
-// }
-
-/* li{
-  list-style: none;
-  border: 1px solid black;
-  border-radius: 15px;
-  padding: 5px;
-  width: 40%;
-  font-size: 18px;
-  margin-top: 20px;
-} */
-
+  .aboutText{
+    width: 80%;
+    text-align: left;
+    p {
+      font-family: "Poppins", sans-serif;
+      font-size: 2vmin;
+    }
+  }
+  .aboutLinks{
+    margin-top: 2vmin;
+    display: flex;
+    align-items: center;
+    a{
+      margin: 2vmin;
+      .port{
+        height: 9vmin;
+         width: auto;
+      }
+      .linkedin{
+        height: 6vmin;
+        width: auto
+      }
+      .git{
+        height: 6vmin;
+        width: auto
+      }
+    }
+  }
+}

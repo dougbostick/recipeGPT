@@ -46,8 +46,8 @@ export default function Assistant(){
                 <div className='topText'>ASK ME</div>
                 <div className='midText'>ANYTHING</div>
                 <div className='bottomText'>ABOUT FOOD</div>
-                <div className='exampleText'>Need suggestions for vegan party guests? </div>
-                <div className='exampleText2'>Finally learn how to cook rice??</div>
+                <div className='exampleText'>Need to know what temp to cook meat? Or how long it takes for dough to rise?</div>
+                <div className='exampleText2'>Let me help!</div>
                 </div>
             </div>
             <div className='apiDiv'>
@@ -61,7 +61,7 @@ export default function Assistant(){
                             autoFocus={true} 
                             placeholder={'Ask me a culinary question...'}
                             />
-                            <button type='submit'>
+                            <button type='submit' className='subBtn'>
                                 <span class="material-symbols-outlined">
                                     contact_support
                                 </span>
