@@ -1,4 +1,3 @@
-import './index.scss'
 import {useState} from 'react'
 import Recipe from '../Recipe/Recipe'
 import axios from 'axios'

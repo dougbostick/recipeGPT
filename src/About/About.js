@@ -1,4 +1,3 @@
-import './index.scss'
 import linkedin from '../assets/linkedin.png'
 import github from '../assets/github.png'
 import portfolio from '../assets/portfolio.png'
