@@ -11,12 +11,12 @@ export default function Assistant(){
     const fetchAdvice = async () => {
         setApiResponse({})
         setLoading(true)
-        setMessage('Asking our LLM friend your question, one moment!')
+        setMessage(':et me think about that, one moment!')
         if(!input.length){
             setMessage('You forgot to ask a question!')
         } else {
             try{
-                const response = await axios.post('http://localhost:3001/gptAssist', {
+                const response = await axios.post('https://mise-server.vercel.app/gptAssist', {
                   input
                 })
                 console.log('assist response', response.data)

@@ -22,7 +22,7 @@ export default function RecipeFinder(){
             ingredientList += (item + ', ')
           }
           try{
-            const response = await axios.post('http://localhost:3001/gpt', {
+            const response = await axios.post('https://mise-server.vercel.app/gpt', {
              ingredientList
             })
             console.log('axios res', response.data)
@@ -124,7 +124,6 @@ export default function RecipeFinder(){
                 </div>
             </div>
           </div>
-            
         </div>
     )
 }
