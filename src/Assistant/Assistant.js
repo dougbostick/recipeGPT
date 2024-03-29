@@ -11,7 +11,7 @@ export default function Assistant(){
     const fetchAdvice = async () => {
         setApiResponse({})
         setLoading(true)
-        setMessage(':et me think about that, one moment!')
+        setMessage('Let me think about that, one moment!')
         if(!input.length){
             setMessage('You forgot to ask a question!')
         } else {
