@@ -166,11 +166,26 @@ div:hover{
 .buttonDiv{
   margin-top: 4vmin;
   display: flex;
+  justify-content: space-between;
+  max-width: 50%;
   button{
     background: none;
     border: none;
     text-align: center;
   }
+  button:hover{
+    opacity: .5;
+  }
+  span{
+    margin: 0;
+  }
+  span:hover{
+    opacity: .5;
+  }
+}
+
+span:hover{
+  opacity: .5;
 }
 
 
@@ -187,9 +202,29 @@ h1{
 }
 
 .ingredientLi{
+  display: flex;
+  justify-content: space-between;
   font-family: "Poppins", sans-serif;
   font-size: 2vmin;
   margin-top: 1vmin;
+  background-color: white;
+  border-radius: 18px;
+  padding: 18px;
+  padding-right: 24px;
+  min-width: 25%;
+  width: fit-content;
+  box-shadow: 0 0 2px 2px rgb(0, 0, 0, .1);
+
+  div{
+    color: #0e00a4;
+    font-weight: bold; 
+    transition: .2s;
+    margin-left: 8px;
+  }
+  div:hover{
+    color: rgb(173, 0, 0);
+    transition: .1s;
+  }
 }
 
 .material-symbols-outlined{
@@ -233,6 +268,26 @@ h1{
     }
   }
 }
+
+.assistantText{
+  background-color: white;
+  margin-bottom: 30px;
+  box-shadow: 0 0 2px 2px rgb(0, 0, 0, .1);
+  padding: 18px;
+  border-radius: 28px;
+  padding-left: 18px;
+  width: 68%;
+}
+
+// .ingredientList{
+//   background-color: white;
+//   margin-bottom: 30px;
+//   box-shadow: 0 0 2px 2px rgb(0, 0, 0, .1);
+//   padding: 18px;
+//   border-radius: 28px;
+//   padding-left: 18px;
+//   width: 50%;
+// }
 
 @media(max-width: 800px){
   .burgerDiv{

@@ -36,7 +36,7 @@ export default function Assistant(){
         setInput('')
     }
 
-    const renderAssistantResponse = apiResponse.response ? <p>{apiResponse.response}</p> : message
+    const renderAssistantResponse = apiResponse.response ? <p className='assistantText'>{apiResponse.response}</p> : message
 
     return(
         <div className='component'>
@@ -45,7 +45,7 @@ export default function Assistant(){
                 <div className='topText'>ASK ME</div>
                 <div className='midText'>ANYTHING</div>
                 <div className='bottomText'>ABOUT FOOD</div>
-                <div className='exampleText'>Need to know what temp to cook meat? Or how long it takes for dough to rise?</div>
+                <div className='exampleText'>Need to know what temp to cook meat? Or finally learn how to make rice?</div>
                 <div className='exampleText2'>Let me help!</div>
                 </div>
             </div>

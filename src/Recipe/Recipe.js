@@ -5,14 +5,15 @@ export default function Recipe (props) {
     const [visible, setVisible] = useState(false)
     console.log('PROPS', props)
     const {recipe, ingredients, steps} = props.recipe
+   
     const view = () => {
         setVisible(!visible)
     }
     return (
-    <div>
+    <div className='singleRecipeDiv'>
         <h1 className='recipeTitle'>{recipe}</h1>
-        {!visible && <h2 onClick={view}>Find out more...</h2>}
-        {visible && <h2 onClick={view}>Find out less...</h2>}
+        {!visible && <h3 onClick={view} style={{fontStyle: 'italic'}}>Find out more...</h3>}
+        {visible && <h3 onClick={view} style={{fontStyle: 'italic'}}>Find out less...</h3>}
 
         {visible && 
         <div className='recipeInfo'>

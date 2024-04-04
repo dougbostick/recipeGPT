@@ -38,6 +38,11 @@ export default function RecipeFinder(){
         setIngedients([])
         setApiResponse({})
       }
+
+      const removeIngredient = (target) => {
+        const newIngredients = ingredients.filter((item) => item !== target)
+        setIngedients(newIngredients)
+      }
     
       const toggleView = () => {
         setView(!view)
@@ -62,7 +67,10 @@ export default function RecipeFinder(){
 
       const renderIngredients = ingredients.length ? ingredients.map((item) => {
         return(
-          <li className='ingredientLi'>{item}</li>
+          <li className='ingredientLi'>
+            {item}
+            <div onClick={() => removeIngredient(item)}>X</div>
+            </li>
         )}) : <div className='message'>Enter some ingredients!</div>
 
 
@@ -108,19 +116,20 @@ export default function RecipeFinder(){
                 </div>
                 </div>}
                 <div className='buttonDiv'>
-                    {apiResponse.recipes || !view  ? <button onClick={toggleView} class='toggle'> 
-                          {view ? 'Recipes' : 'Ingredients'}
-                    </button>: null}
+                    
                     {view && 
-                        <span onClick={fetchRecipe} class="material-symbols-outlined">
+                        <span onClick={fetchRecipe} className="material-symbols-outlined">
                           search
                         </span>
                       }
                       {view && 
-                      <span onClick={clearIngredients} class="material-symbols-outlined">
+                      <span onClick={clearIngredients} className="material-symbols-outlined">
                         delete_forever
                       </span>
                         }
+                        {apiResponse.recipes || !view  ? <button onClick={toggleView} className='toggle'> 
+                          {view ? 'Recipes' : 'Ingredients'}
+                    </button>: null}
                 </div>
             </div>
           </div>

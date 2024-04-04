@@ -1,5 +1,7 @@
 .recipeTitle {
     font-size: 4vmin;
+    color: #0e00a4;
+
 }
 
 h2{
@@ -19,8 +21,22 @@ li {
 
 .recipeInfo {
     text-align: left;
+    h2{
+        color: #0e00a4;
+
+    }
 }
 
 ul {
     padding: 0;
 }
+
+.singleRecipeDiv{
+    background-color: white;
+    margin-bottom: 30px;
+    box-shadow: 0 0 2px 2px rgb(0, 0, 0, .1);
+    padding: 8px;
+    border-radius: 18px;
+    padding-left: 18px;
+}
+

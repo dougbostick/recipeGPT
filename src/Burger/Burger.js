@@ -1,4 +1,4 @@
-
+import './index.scss'
 
 export default function Burger(props){
 
@@ -9,7 +9,7 @@ export default function Burger(props){
     const {handleView, burger, setBurger} = props
         return(
             <div className="burgerDiv">
-               {burger && <span onClick={toggleBurger} class="material-symbols-outlined">
+               {burger && <span onClick={toggleBurger} className="material-symbols-outlined">
                     menu
                 </span>}
                {!burger && <div onClick={toggleBurger} className='options'>
