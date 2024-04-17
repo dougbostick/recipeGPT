@@ -15,5 +15,5 @@ The server supporting Mise is comprised of RESTful APIs that query the OpenAI AP
 
 
  <a href="https://usemise.com/" target="_blank">
-<!--  <img src="https://github.com/dougbostick/recipeGPT/assets/95255667/b684046d-5e30-4289-96c3-9418876585fc" /> -->
+ <img src="src/assets/logo.png" />
  </a>
