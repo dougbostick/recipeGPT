@@ -11,7 +11,7 @@ Mise utilizes React as a front-end framework and Express.js as the foundation fo
 The server supporting Mise is comprised of RESTful APIs that query the OpenAI API.
 
 ## Use it Now
- Try it here: [https://seven-ten-split.herokuapp.com/](https://usemise.com/)
+ Try it here: https://usemise.com/
 
 
  <a href="https://usemise.com/" target="_blank">
